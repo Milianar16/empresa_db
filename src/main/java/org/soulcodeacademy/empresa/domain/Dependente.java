@@ -1,8 +1,11 @@
 package org.soulcodeacademy.empresa.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Dependente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +23,11 @@ public class Dependente {
 
     public Dependente() {}
 
-    public Dependente(Integer idDependente, String nome, Integer idade) {
+    public Dependente(Integer idDependente, String nome, Integer idade, Empregado responsavel) {
         this.idDependente = idDependente;
         this.nome = nome;
         this.idade = idade;
+        this.responsavel = responsavel;
     }
 
     public Integer getIdDependente() {

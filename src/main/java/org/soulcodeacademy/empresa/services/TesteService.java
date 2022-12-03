@@ -47,9 +47,9 @@ public class TesteService {
         this.empregadoRepository.saveAll(List.of(empregado1, empregado2, empregado3));
 
         // Associação 1:N
-        Dependente dependente1 = new Dependente(null, "Maria Antonieta", 13);
-        Dependente dependente2 = new Dependente(null, "Carlos José", 11);
-        Dependente dependente3 = new Dependente(null, "Pedro Alves", 9);
+        Dependente dependente1 = new Dependente(null, "Maria Antonieta", 13, null);
+        Dependente dependente2 = new Dependente(null, "Carlos José", 11, null);
+        Dependente dependente3 = new Dependente(null, "Pedro Alves", 9, null);
 
         dependente1.setResponsavel(empregado1);
         dependente2.setResponsavel(empregado2);

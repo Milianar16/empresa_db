@@ -1,10 +1,13 @@
 package org.soulcodeacademy.empresa.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Empregado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
