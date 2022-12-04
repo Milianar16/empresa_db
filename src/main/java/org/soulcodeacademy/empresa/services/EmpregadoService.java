@@ -1,7 +1,9 @@
 package org.soulcodeacademy.empresa.services;
 
 import org.soulcodeacademy.empresa.domain.Empregado;
+import org.soulcodeacademy.empresa.domain.Projeto;
 import org.soulcodeacademy.empresa.domain.dto.EmpregadoDTO;
+import org.soulcodeacademy.empresa.domain.dto.ProjetoDTO;
 import org.soulcodeacademy.empresa.repositories.EmpregadoRepository;
 import org.soulcodeacademy.empresa.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +52,33 @@ public class EmpregadoService {
         empregadoAtual.setNome(dto.getNome());
         empregadoAtual.setEmail(dto.getEmail());
         empregadoAtual.setSalario(dto.getSalario());
+        empregadoAtual.getProjetos().remove(new Projeto());
 
         return this.empregadoRepository.save(empregadoAtual);
     }
+    public void adicionarProjeto(Integer idEmpregado, Integer idProjeto){
+
+        Empregado empregado = empregadoRepository.findById(idEmpregado).get();
+        Projeto projeto = new Projeto();
+        projeto.setIdProjeto(idProjeto);
+
+        empregado.getProjetos().add(projeto);
+
+        empregadoRepository.save(empregado);
+
+    }
+
+    public void removerProjeto(Integer idEmpregado, Integer idProjeto){
+        Empregado empregado = empregadoRepository.findById(idEmpregado).get();
+
+        Projeto projeto = new Projeto();
+        projeto.setIdProjeto(idProjeto);
+
+        empregado.getProjetos().remove(projeto);
+
+        empregadoRepository.save(empregado);
+    }
+
 
     //Deletar
     public void deletar(Integer idEmpregado) {
