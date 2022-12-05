@@ -52,12 +52,15 @@ public class ProjetoService {
             return atualizado;
         }
 
-        public void deletar (Integer idProjeto){
-            this.projetoRepository.deleteById(idProjeto);
-        }
-
-
+    public void deletar (Integer idProjeto){
+        Projeto projeto = this.getProjeto(idProjeto);
+        this.projetoRepository.delete(projeto);
     }
+
+
+}
+
+
 
 
 

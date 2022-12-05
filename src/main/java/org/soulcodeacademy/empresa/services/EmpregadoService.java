@@ -83,6 +83,10 @@ public class EmpregadoService {
     //Deletar
     public void deletar(Integer idEmpregado) {
         Empregado empregado = this.getEmpregado(idEmpregado); //puxa o empregado pelo id
+
+        empregado.setProjetos(null);
+
+
         this.empregadoRepository.delete(empregado); // repository manipula o banco e deleta
     }
-}
+    }

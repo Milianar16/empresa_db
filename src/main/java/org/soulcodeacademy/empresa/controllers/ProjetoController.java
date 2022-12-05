@@ -1,8 +1,8 @@
 package org.soulcodeacademy.empresa.controllers;
 
-import org.soulcodeacademy.empresa.domain.Endereco;
+
 import org.soulcodeacademy.empresa.domain.Projeto;
-import org.soulcodeacademy.empresa.domain.dto.EnderecoDTO;
+
 import org.soulcodeacademy.empresa.domain.dto.ProjetoDTO;
 import org.soulcodeacademy.empresa.services.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +40,9 @@ public class ProjetoController {
     }
 
     @DeleteMapping("/projetos/{idProjeto}")
-    public void deletar(@PathVariable("idProjeto") Integer idProjeto) {
+    public void deletar(@PathVariable Integer idProjeto) {
         this.projetoService.deletar(idProjeto);
     }
-
 
 }
 
